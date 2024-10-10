@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillWise - Sign In</title>
+    <link rel="stylesheet" href="assets/css/signin.css">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6e45e2, #88d3ce);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInBackground 2s ease-in-out;
+        }
+
+        @keyframes fadeInBackground {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            animation: slideInForm 1s ease-out;
+        }
+
+        @keyframes slideInForm {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .brand {
+            color: #6e45e2;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #6e45e2;
+            box-shadow: 0 0 8px rgba(110, 69, 226, 0.3);
+        }
+
+        .signin-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #6e45e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .signin-btn:hover {
+            background-color: #5533c7;
+        }
+
+        .password {
+            position: relative;
+        }
+
+        .password i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #888;
+        }
+
+        .password i:hover {
+            color: #6e45e2;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .signup-link a {
+            color: #6e45e2;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .signin-btn {
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <img src="assets/images/Skillwise_logo.jpg" alt="SkillWise Logo" class="logo">
+            
+            <h1>Welcome to <span class="brand">SkillWise</span></h1>
+            <p><strong>Sign in</strong> to access your learning dashboard</p>
+            
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="password">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <i class="fa-solid fa-eye-slash" id="togglePassword"></i>
+                    </div>
+                </div>
+                <button type="submit" class="signin-btn">Sign In</button>
+                <p class="signup-link">Don't have an account? <a href="./signup.html">Sign up here</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        const togglePassword = document.querySelector("#togglePassword");
+        const passwordInput = document.querySelector("#password");
+
+        togglePassword.addEventListener("click", function () {
+            const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+            passwordInput.setAttribute("type", type);
+
+            this.classList.toggle("fa-eye-slash");
+            this.classList.toggle("fa-eye");
+        });
+    </script>
+</body>
+</html>
